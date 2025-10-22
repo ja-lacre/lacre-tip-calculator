@@ -33,8 +33,24 @@ export default function TipCalculator() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl shadow-md">
-      <section>
+    <div
+      className="
+        bg-white
+        w-full
+        md:max-w-3xl
+        grid
+        grid-cols-1
+        md:grid-cols-2
+        gap-8
+        md:gap-10
+        p-8
+        md:p-10
+        md:rounded-2xl
+        rounded-t-3xl
+        shadow-xl
+      "
+    >
+      <section className="flex flex-col justify-between gap-8 md:gap-10">
         <BillInput bill={bill} onChange={setBill} />
         <TipSelector
           selectedTip={selectedTip}
