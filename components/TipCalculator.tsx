@@ -12,18 +12,20 @@ export default function TipCalculator() {
   const [selectedTip, setSelectedTip] = useState<number | null>(null);
 
   const billNum = parseFloat(bill || "0");
-  const peopleNum = Math.max(1, Math.floor(Number(people) || 0));
+  const peopleNumRaw = Number(people || 0);
+  const isPeopleZero = people !== "" && peopleNumRaw === 0;
+  const peopleNum = Math.max(1, Math.floor(peopleNumRaw || 0));
   const tipPercent = selectedTip ?? (customTip ? Number(customTip) : null);
 
   const { tipPerPerson, totalPerPerson } = useMemo(() => {
-    if (!billNum || !peopleNum || !tipPercent) {
-      return { tipPerPerson: 0, totalPerPerson: billNum / Math.max(1, peopleNum) };
+    if (!billNum || isPeopleZero || !peopleNum || !tipPercent) {
+      return { tipPerPerson: 0, totalPerPerson: 0 };
     }
     const tipTotal = billNum * (tipPercent / 100);
     const tipPerPerson = tipTotal / peopleNum;
     const totalPerPerson = (billNum + tipTotal) / peopleNum;
     return { tipPerPerson, totalPerPerson };
-  }, [billNum, peopleNum, tipPercent]);
+  }, [billNum, peopleNum, tipPercent, isPeopleZero]);
 
   function reset() {
     setBill("");
@@ -58,7 +60,7 @@ export default function TipCalculator() {
           customTip={customTip}
           onCustomChange={setCustomTip}
         />
-        <PeopleInput people={people} onChange={setPeople} />
+        <PeopleInput people={people} onChange={setPeople} isError={isPeopleZero} />
       </section>
 
       <ResultCard
