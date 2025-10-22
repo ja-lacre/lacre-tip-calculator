@@ -12,28 +12,56 @@ export default function ResultCard({
   onReset,
 }: ResultCardProps) {
   return (
-    <section className="bg-gray-50 p-4 rounded-lg flex flex-col justify-between">
-      <div>
-        <div className="flex items-center justify-between mb-4">
+    <section
+      className="
+        bg-[hsl(183,100%,15%)]
+        text-white
+        rounded-xl
+        p-6
+        md:p-8
+        flex
+        flex-col
+        justify-between
+      "
+    >
+      <div className="space-y-6 md:space-y-8">
+        <div className="flex items-center justify-between">
           <div>
-            <div className="text-sm text-slate-500">Tip Amount</div>
-            <div className="text-xs text-slate-400">/ person</div>
+            <p className="text-sm text-[hsl(184,14%,56%)]">Tip Amount</p>
+            <p className="text-xs text-[hsl(184,14%,56%)]">/ person</p>
           </div>
-          <div className="text-2xl font-bold">${tipPerPerson.toFixed(2)}</div>
+          <p className="text-[32px] md:text-[48px] text-[hsl(172,67%,45%)] leading-none">
+            ${tipPerPerson.toFixed(2)}
+          </p>
         </div>
 
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between">
           <div>
-            <div className="text-sm text-slate-500">Total</div>
-            <div className="text-xs text-slate-400">/ person</div>
+            <p className="text-sm text-[hsl(184,14%,56%)]">Total</p>
+            <p className="text-xs text-[hsl(184,14%,56%)]">/ person</p>
           </div>
-          <div className="text-2xl font-bold">${totalPerPerson.toFixed(2)}</div>
+          <p className="text-[32px] md:text-[48px] text-[hsl(172,67%,45%)] leading-none">
+            ${totalPerPerson.toFixed(2)}
+          </p>
         </div>
       </div>
 
       <button
         onClick={onReset}
-        className="mt-4 w-full py-2 rounded-md bg-slate-200 font-semibold hover:bg-slate-300"
+        className="
+          mt-8
+          md:mt-10
+          w-full
+          py-3
+          rounded-md
+          bg-[hsl(172,67%,45%)]
+          text-[hsl(183,100%,15%)]
+          text-[18px]
+          uppercase
+          tracking-wider
+          hover:bg-[hsl(172,67%,60%)]
+          transition
+        "
       >
         Reset
       </button>
