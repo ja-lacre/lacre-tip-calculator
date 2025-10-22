@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --accent: #26c0ab;
-  --accent-600: #1aa89a;
+  --green-400: hsl(172, 67%, 45%);
+  --green-900: hsl(183, 100%, 15%);
+  --gray-500: hsl(186, 14%, 43%);
+  --gray-400: hsl(184, 14%, 56%);
+  --gray-200: hsl(185, 41%, 84%);
+  --gray-50: hsl(189, 47%, 97%);
+  --white: hsl(0, 100%, 100%);
 }
 
+html,
 body {
-  background: var(--bg);
-  font-family: system-ui, sans-serif;
-  color: #333;
+  background-color: var(--gray-200);
+  color: var(--green-900);
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
 }
